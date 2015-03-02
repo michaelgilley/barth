@@ -1,0 +1,19 @@
+{
+  "name": "barth",
+  "version": "1.0.0",
+  "description": "Helpful Karl Barth quotes.",
+  "main": "index.js",
+  "bin": {
+    "barth": "./cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelgilley/barth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelgilley/barth/issues"
+  },
+  "homepage": "https://github.com/michaelgilley/barth"
+}

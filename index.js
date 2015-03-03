@@ -1,5 +1,7 @@
 
-var quotes = require('./data').quotes
+var fs = require('fs')
+var data = fs.readFileSync(process.cwd() + '/data.json', 'utf8')
+var quotes = JSON.parse(data).quotes
 
 function getAQuote (idx) {
   var pick = idx || Math.floor(Math.random() * quotes.length)

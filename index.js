@@ -1,6 +1,6 @@
 
 var fs = require('fs')
-var data = fs.readFileSync(process.cwd() + '/data.json', 'utf8')
+var data = fs.readFileSync(__dirname + '/data.json', 'utf8')
 var quotes = JSON.parse(data).quotes
 
 function getAQuote (idx) {

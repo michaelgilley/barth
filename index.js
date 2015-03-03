@@ -18,7 +18,8 @@ module.exports = exports = function(num, opts) {
     opts = num
     num = 1
   }
-  num = Math.floor(+num || 1)
+  num = Math.abs(Math.floor(+num || 1))
+  num = Math.min(num, quotes.length)
   opts = Object(opts)
   if (num === 1) return formatter(getAQuote(), opts)
   var quotes = []
@@ -33,6 +34,10 @@ exports.daily = function(opts) {
 
   var now = new Date()
     , beginningOfDay = (new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 1000
+
+  if (opts.debug) {
+    console.log('Getting daily', {now: now, bOfDay: beginningOfDay, outOf: quotes.length})
+  }
 
   return formatter(getAQuote(beginningOfDay % quotes.length), opts)
 }

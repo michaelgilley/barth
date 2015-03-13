@@ -33,11 +33,12 @@ exports.daily = function(opts) {
   opts = Object(opts)
 
   var now = new Date()
-    , beginningOfDay = (new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 1000
+    , start = new Date(now.getFullYear(), 0, 1)
+    , julian = Math.ceil((now - start) / 86400000)
 
   if (opts.debug) {
-    console.log('Getting daily', {now: now, bOfDay: beginningOfDay, outOf: quotes.length})
+    console.log('Getting daily', {now: now, julian: julian, outOf: quotes.length})
   }
 
-  return formatter(getAQuote(beginningOfDay % quotes.length), opts)
+  return formatter(getAQuote((julian - 1) % quotes.length), opts)
 }
